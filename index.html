@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recent News Brief | 2026-06-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5b6775;
+      --line: #dbe2ea;
+      --paper: #f6f8f7;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --accent-2: #b84a3a;
+      --accent-3: #2f5f8f;
+      --sun: #f5b84b;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+      background:
+        linear-gradient(180deg, rgba(8, 16, 24, .18), rgba(8, 16, 24, .72)),
+        url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1800&q=82") center / cover;
+      color: white;
+      padding: 28px clamp(18px, 4vw, 56px);
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px clamp(18px, 4vw, 56px);
+      color: white;
+      font-size: 14px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero-copy {
+      width: min(980px, 100%);
+      padding-bottom: 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #f8d27a;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 860px;
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .88);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    main {
+      padding: 0 clamp(18px, 4vw, 56px) 56px;
+    }
+
+    .digest {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 1180px;
+      margin: -30px auto 48px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: 0 18px 38px rgba(29, 45, 63, .12);
+    }
+
+    .metric {
+      background: var(--panel);
+      padding: 20px;
+      min-height: 132px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-head {
+      max-width: 1180px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 440px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tag {
+      width: fit-content;
+      border: 1px solid currentColor;
+      color: var(--accent-3);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .why {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .source::after {
+      content: "↗";
+      font-size: 13px;
+    }
+
+    .timeline {
+      max-width: 1180px;
+      margin: 54px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 28px;
+      border-top: 2px solid var(--ink);
+      padding-top: 24px;
+    }
+
+    .timeline ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline li {
+      background: white;
+      border-left: 4px solid var(--sun);
+      padding: 14px 16px;
+      color: var(--muted);
+    }
+
+    .timeline strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 46px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .digest,
+      .grid,
+      .timeline {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 72vh;
+        padding-top: 84px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        font-size: 13px;
+      }
+
+      .digest,
+      .grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .digest {
+        margin-top: -22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="主要ナビゲーション">
+      <a class="brand" href="#">Recent News Brief</a>
+      <div class="nav-links">
+        <a href="#top-stories">主要ニュース</a>
+        <a href="#watch">注目点</a>
+        <a href="#sources">出典</a>
+      </div>
+    </nav>
+    <div class="hero-copy">
+      <div class="eyebrow">Updated 2026.06.17 JST</div>
+      <h1>最近のニュースを、短く、立体的に。</h1>
+      <p>国際政治、経済、テクノロジー、スポーツと気候リスクから、今日読むべき流れをまとめたニュースダイジェストです。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="digest" aria-label="今日の概況">
+      <div class="metric">
+        <strong>G7</strong>
+        <span>フランスのエビアンで首脳会議。ウクライナ、貿易、エネルギーが焦点。</span>
+      </div>
+      <div class="metric">
+        <strong>AI基盤</strong>
+        <span>HPEがJuniper統合を前面に出し、AIネットワーク競争を加速。</span>
+      </div>
+      <div class="metric">
+        <strong>W杯</strong>
+        <span>2026年大会は暑熱、放送技術、サイバー安全が重なる巨大イベントに。</span>
+      </div>
+      <div class="metric">
+        <strong>経済</strong>
+        <span>エネルギー価格と地政学リスクが、成長とインフレの見通しを揺らす。</span>
+      </div>
+    </section>
+
+    <section id="top-stories">
+      <div class="section-head">
+        <h2>主要ニュース</h2>
+        <p>各カードは、2026年6月中旬に確認できた報道や公開情報をもとにした要約です。詳細は出典リンクから確認できます。</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img alt="国際会議の会場イメージ" src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">国際</span>
+            <h3>G7、ウクライナ支援と対ロシア制裁が再び中心議題に</h3>
+            <p>エビアンで開かれたG7では、各国がウクライナ防空支援やロシア制裁の強化をめぐって協議。米国の関与をどう維持するかが重要なテーマになっています。</p>
+            <div class="why">なぜ重要か: 安全保障だけでなく、エネルギー、食料、貿易の不確実性にも波及します。</div>
+            <a class="source" href="https://www.wsj.com/world/europe/u-s-allies-use-g-7-to-focus-trumps-attention-back-to-ukraine-f0c22f45">WSJ</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="サーバールームのイメージ" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">テック</span>
+            <h3>HPE、Juniper統合でAIネットワークを前面に</h3>
+            <p>HPE Discoverでは、Juniper買収後のネットワーク製品とAIインフラ戦略が注目されました。データセンターとエッジをつなぐ自律型ネットワークが競争軸です。</p>
+            <div class="why">なぜ重要か: AI需要は半導体だけでなく、通信、クラウド、運用自動化まで投資対象を広げています。</div>
+            <a class="source" href="https://www.investors.com/news/technology/hpe-stock-discover-conference-juniper-artificial-intelligence/">Investor's Business Daily</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="石油設備のイメージ" src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">経済</span>
+            <h3>エネルギー危機が下半期の世界経済を圧迫</h3>
+            <p>中東情勢とエネルギー輸出の混乱が、商品価格やインフレ見通しに影響。AI投資が成長を支える一方、家計と企業のコスト負担は重くなっています。</p>
+            <div class="why">なぜ重要か: インフレが粘れば、利下げ期待、消費、企業投資の判断が変わります。</div>
+            <a class="source" href="https://www.kiplinger.com/investing/economy/how-the-world-is-absorbing-the-2026-energy-crisis">Kiplinger</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="サッカースタジアムのイメージ" src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">スポーツ</span>
+            <h3>2026年W杯、暑熱リスクが選手と観客の課題に</h3>
+            <p>北米3カ国開催のワールドカップでは、一部会場で高温多湿が懸念されています。給水休憩や冷却策だけで十分か、専門家の議論が続いています。</p>
+            <div class="why">なぜ重要か: 大型スポーツイベントは、気候適応と興行設計の両方を問われています。</div>
+            <a class="source" href="https://www.lemonde.fr/en/environment/article/2026/06/12/world-cup-2026-footballers-compete-with-potentially-dangerous-temperatures_6754390_114.html">Le Monde</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="放送機材のイメージ" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">メディア</span>
+            <h3>W杯放送、AIとデータ基盤が体験を変える</h3>
+            <p>大会運営では、映像配信、会場内スクリーン、データ分析をほぼリアルタイムで連携させる仕組みが注目されています。</p>
+            <div class="why">なぜ重要か: スポーツ配信は、ライブ映像からデータ体験へと拡張しています。</div>
+            <a class="source" href="https://timesofindia.indiatimes.com/technology/tech-news/how-lenovo-aims-to-give-smart-touch-to-fifa-world-cup-2026/articleshow/131658934.cms">Times of India</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="スマートフォンとセキュリティのイメージ" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80">
+          <div class="card-body">
+            <span class="tag">セキュリティ</span>
+            <h3>W杯観戦と公共Wi-Fi、サイバー安全が商機に</h3>
+            <p>ExpressVPNは2026年W杯の公式サポーターとして提携を発表。大規模イベントでの公共Wi-Fi利用やストリーミング視聴の安全性が訴求点です。</p>
+            <div class="why">なぜ重要か: 巨大イベントは、現地観戦、配信、広告、個人情報保護が同時に動く市場になります。</div>
+            <a class="source" href="https://www.techradar.com/vpn/vpn-services/expressvpn-becomes-an-official-supporter-of-the-fifa-world-cup-2026-in-biggest-sports-deal-yet-and-gives-away-over-50-premium-tickets">TechRadar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="watch" class="timeline">
+      <div>
+        <h2>次に見るポイント</h2>
+        <p>ニュースは単発ではなく、数日から数週間の連鎖で意味が見えてきます。</p>
+      </div>
+      <ul>
+        <li><strong>G7後の共同声明</strong>ウクライナ、防空支援、ロシア制裁、エネルギー安定化にどこまで具体策が入るか。</li>
+        <li><strong>AIインフラ企業の受注</strong>サーバー、ネットワーク、電力制約のどこが次のボトルネックになるか。</li>
+        <li><strong>暑熱対策の運用</strong>W杯で試合時間、給水、会場設備、観客導線に追加対応が出るか。</li>
+        <li><strong>エネルギー価格と物価</strong>中央銀行の利下げ判断に影響する原油、電力、食料価格の推移。</li>
+      </ul>
+    </section>
+
+    <footer id="sources">
+      出典: WSJ, Investor's Business Daily, Kiplinger, Le Monde, Times of India, TechRadar。画像: Unsplash。作成日時: 2026年6月17日。
+    </footer>
+  </main>
+</body>
+</html>
